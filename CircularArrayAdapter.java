@@ -29,27 +29,36 @@ public class CircularArrayAdapter<T> {
 
     // TODO: constructor that copies from CircularLinkedList
     public CircularArrayAdapter(CircularLinkedList<T> circularList) {
+        list = new ArrayList<T>();
+        for(int i =0;i<circularList.size();i++){
+            list.add(circularList.get(i));
+        }
+
         // TODO
     }
 
     // TODO: return element at index
     public T get(int index) {
-        // TODO
-        return null;
+
+        return list.get(index);
     }
 
     // TODO: remove element at index
     public void remove(int index) {
-        // TODO
+        list.remove(index);
     }
 
     // TODO: convert ArrayList back to CircularLinkedList
     public CircularLinkedList<T> toCircularLinkedList() {
-        // TODO
-        return null;
+        CircularLinkedList<T> newlist = new CircularLinkedList<>();
+        for (T item : list) {
+            newlist.add(item);
+        }
+        return newlist;
     }
 
     public int size() {
         return list.size();
     }
 }
+
